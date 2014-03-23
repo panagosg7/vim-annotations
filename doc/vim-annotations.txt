@@ -1,0 +1,66 @@
+*vim-annotations.txt*	Plugin for code annotation
+
+Author: Panagiotis Vekris
+
+Based on the following plugins:
+https://github.com/khorser/vim-qfnotes
+https://github.com/bitc/vim-hdevtools
+
+For Vim version 7.2 and above
+
+
+1. Overview 					|annotations-intro|
+2. Requirements					|annotations-requirements|
+3. Installation 				|annotations-install|
+4. Usage 					|annotations-using|
+5. Options 					|annotations-options|
+6. Commands 					|annotations-commands|
+7. Default Key Mappings				|annotations-mappings|
+8. License 					|annotations-license|
+9. Todo						|annotations-todo|
+
+==============================================================================
+							     *annotations-intro*
+1. Overview~
+
+
+==============================================================================
+						      *annotations-requirements*
+2. Requirements~
+
+The plugin requires Vim version 7.2 and above
+
+
+==============================================================================
+						           *annotations-install*
+3. Installation~
+
+==============================================================================
+						             *annotations-using*
+4. Usage~
+
+
+==============================================================================
+						           *annotations-options*
+5. Options~
+
+==============================================================================
+						          *annotations-commands*
+6. Commands~
+
+==============================================================================
+							  *annotations-mappings*
+7. Default Key Mappings~
+
+==============================================================================
+							   *annotations-license*
+8. License~
+
+
+==============================================================================
+							      *annotations-todo*
+9. Todo~
+
+==============================================================================
+
+vim:tw=78:ts=8:noet:ft=help:
