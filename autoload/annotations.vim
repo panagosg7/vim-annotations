@@ -1,9 +1,9 @@
-" qfnotes.vim
+" annotations.vim
 " Create file notes in quickfix format
 " Last Change: $HGLastChangedDate$
 " Maintainer: Sergey Khorev <sergey.khorev@gmail.com>
 " Based on qfn.vim by Will Drewry <redpig@dataspill.org>: http://www.vim.org/scripts/script.php?script_id=2216
-" License: See qfnotes.txt packaged with this file.
+" License: See annotations.txt packaged with this file.
 
 if exists("g:loaded_qfnotes_auto")
   finish
@@ -35,7 +35,7 @@ endfunction
 
 let s:hdevtools_info_buffer = -1
 
-function qfnotes#LoadAnns(fileName)
+function annotations#LoadAnns(fileName)
   let b:file = readfile(a:fileName)
   let b:spans = []
   echo "Loaded annotation file: " . a:fileName
@@ -58,7 +58,7 @@ function qfnotes#LoadAnns(fileName)
   
 endfunction
 
-function! qfnotes#clear_highlight()
+function! annotations#clear_highlight()
   if exists('w:ann_matchid')
     call matchdelete(w:ann_matchid)
     unlet w:ann_matchid
@@ -66,7 +66,7 @@ function! qfnotes#clear_highlight()
 endfunction
 
 
-function qfnotes#Type(...)
+function annotations#Type(...)
 
   if !b:ann_file_loaded
     echoerr "You need to load annotation file first." 
@@ -74,7 +74,7 @@ function qfnotes#Type(...)
   endif
 
   " Clear previous highlights
-  call qfnotes#clear_highlight()
+  call annotations#clear_highlight()
   let curPos = [line("."), col(".")]
 
   " Cycle through available annotations - do at most b:spans_length steps
@@ -86,7 +86,7 @@ function qfnotes#Type(...)
 
     if Contains(range, curPos)
       " Clear previous highlights
-      call qfnotes#clear_highlight()
+      call annotations#clear_highlight()
 
       " Highlight the expression we're looking for
       let group = get(g:, 'highlight', 'Visual')
