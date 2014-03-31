@@ -4,11 +4,12 @@ vim-annotations
 Vim plugin intended for displaying type annotations of TypeScript programs
 produced by [nano-js] (https://github.com/UCSD-PL/nano-js).
 
+![alt tag](https://raw.githubusercontent.com/panagosg7/vim-annotations/master/doc/neg.png)
+
 This plugin has been inspired by the following plugins:
  - https://github.com/khorser/vim-qfnotes
  - https://github.com/bitc/vim-hdevtools
 
-![alt tag](https://raw.githubusercontent.com/panagosg7/vim-annotations/master/doc/neg.png)
 
 
 ## Installation
