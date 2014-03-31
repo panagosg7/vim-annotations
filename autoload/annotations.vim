@@ -1,9 +1,4 @@
 " annotations.vim
-" Create file notes in quickfix format
-" Last Change: $HGLastChangedDate$
-" Maintainer: Sergey Khorev <sergey.khorev@gmail.com>
-" Based on qfn.vim by Will Drewry <redpig@dataspill.org>: http://www.vim.org/scripts/script.php?script_id=2216
-" License: See annotations.txt packaged with this file.
 
 if exists("g:loaded_qfnotes_auto")
   finish
