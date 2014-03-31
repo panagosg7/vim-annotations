@@ -1,12 +1,13 @@
 vim-annotations
 ===============
 
-Vim plugin is intended for displaying type annotations of TypeScript programs
+Vim plugin intended for displaying type annotations of TypeScript programs
 produced by [nano-js] (https://github.com/UCSD-PL/nano-js).
 
 This plugin has been inspired by the following plugins:
-https://github.com/khorser/vim-qfnotes
-https://github.com/bitc/vim-hdevtools
+ - https://github.com/khorser/vim-qfnotes
+ - https://github.com/bitc/vim-hdevtools
+
 
 
 ## Installation
@@ -16,6 +17,7 @@ The easiest way to install is through [Vundle](https://github.com/gmarik/Vundle.
 Just add the following line in your `.vimrc`:
 
     Bundle "panagosg7/vim-annotations"
+
 
 
 ## Valid input
@@ -32,20 +34,27 @@ annotated code and `<col2>` and `<line2>` those of the end. `<Content>` can be
 any _singel-line_ string. End of line (`\n`) is supported, and will be shown
 accordingly.
 
-This plugin has been inspired by the following plugins:
-https://github.com/khorser/vim-qfnotes
-https://github.com/bitc/vim-hdevtools
 
 
 ## Usage
 
-
 ### Load annotation file
 
+    :LoadAnns /path/to/annotation/file
+
+
+After the annotation file has been loaded the following operations are enabled.
 
 ### Invoke type query
+
+ - Move cursor on expression that needs to be identified.
+ - Hit `<F1>`. The relevant type should appear in the quickfix box.
+ - By hitting `<F1>` multiple times, you can iterate over the possibly many
+   expressions that contain the current screen cell. The expression that is 
+   identified every time will be highlighted.
 
 
 ### Clear highlight
 
+Hit `<F2>`, to clear selection.
 
