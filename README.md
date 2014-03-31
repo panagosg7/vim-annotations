@@ -8,6 +8,7 @@ This plugin has been inspired by the following plugins:
  - https://github.com/khorser/vim-qfnotes
  - https://github.com/bitc/vim-hdevtools
 
+![alt tag](https://raw.githubusercontent.com/panagosg7/vim-annotations/master/doc/neg.png)
 
 
 ## Installation
