@@ -13,7 +13,7 @@ endif
 
 noremap <SID>LQType :call annotations#Type()<CR>
 noremap <SID>ClearLQType :call annotations#clear_highlight()<CR>
-" noremap <SID>LoadAnns :call annotations#LoadAnns(1)<CR>
+noremap <SID>LoadAnns :call annotations#LoadAnns(1)<CR>
 noremap <SID>LoadAnnsDefault :call annotations#LoadAnnsDefault()<CR>
 
 command! -nargs=0 LQType                  :call annotations#Type()
