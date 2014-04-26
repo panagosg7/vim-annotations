@@ -28,6 +28,7 @@ function Contains(range, position)
   return 1 
 endfunction
 
+
 let s:hdevtools_info_buffer = -1
 
 function annotations#LoadAnns(fileName)
@@ -50,7 +51,12 @@ function annotations#LoadAnns(fileName)
   " Enable mappings
   nnoremap <buffer> <F1> :LQType<CR>
   nnoremap <buffer> <F2> :ClearLQType<CR>
-  
+
+endfunction
+
+function annotations#LoadAnnsDefault()
+  let annFile = expand("%") . ".vim.annot"
+  call annotations#LoadAnns(annFile) 
 endfunction
 
 function! annotations#clear_highlight()
@@ -62,7 +68,6 @@ endfunction
 
 
 function annotations#Type(...)
-
   if !b:ann_file_loaded
     echoerr "You need to load annotation file first." 
     return
@@ -96,5 +101,47 @@ function annotations#Type(...)
   echo "No annotation found"
   
 endfunction
+
+
+function LookupAnnotation(curPos)
+  let i = 0
+  while i+1 < b:spans_length
+    let i     = i + 1
+    let range = b:spans[i][0]
+
+    if Contains(range, a:curPos)
+      return b:spans[i][1]
+    endif
+  endwhile
+  return ""
+endfunction
+
+function! AnnotBalloonExpr()
+  
+  if !exists("b:ann_file_loaded") 
+    return ""
+  endif
+
+  
+  " if !b:ann_file_loaded
+  "   " echoerr "You need to load annotation file first." 
+  "   return ""
+  " endif
+  
+  let curPos = [v:beval_lnum, v:beval_col]
+  
+  return LookupAnnotation(curPos)
+
+  " return 'Cursor is at line ' . v:beval_lnum . "\n" . 
+  "       \', column ' . v:beval_col . "\n" .
+  "       \ ' of file ' .  bufname(v:beval_bufnr) . "\n" .
+  "       \ ' on word "' . v:beval_text . '"'
+endfunction
+
+
+if has("gui")
+  set bexpr=AnnotBalloonExpr()
+  set ballooneval
+endif
 
 " vim: set ft=vim ts=8 sts=2 sw=2:
