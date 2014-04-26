@@ -1,8 +1,8 @@
 vim-annotations
 ===============
 
-Vim plugin intended for displaying type annotations of TypeScript programs
-produced by [nano-js] (https://github.com/UCSD-PL/nano-js).
+Vim plugin intended for displaying type annotations of programs produced by
+tools like [nano-js](https://github.com/UCSD-PL/nano-js).
 
 ![alt tag](https://raw.githubusercontent.com/panagosg7/vim-annotations/master/doc/neg.png)
 
