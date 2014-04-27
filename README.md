@@ -44,8 +44,14 @@ accordingly.
 
     :LoadAnns /path/to/annotation/file
 
-
 After the annotation file has been loaded the following operations are enabled.
+
+### Load default annotation file
+
+    :LoadAnnsDefault
+
+The above loads the default annotations file `foo.vim.annot`, sparing the user
+from having to specify a particular annotation file, if so desired.
 
 ### Invoke type query
 
@@ -59,4 +65,12 @@ After the annotation file has been loaded the following operations are enabled.
 ### Clear highlight
 
 Hit `<F2>`, to clear selection.
+
+### Hover Annotations
+
+On `gvim` or `macvim` hovering the mouse over an identifier will display the
+inferred type for the identifier, if one exists.
+
+
+![hover type display](https://raw.githubusercontent.com/panagosg7/vim-annotations/master/doc/balloon.png)
 
