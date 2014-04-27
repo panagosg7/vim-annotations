@@ -29,7 +29,7 @@ produced by [nano-js] (https://github.com/UCSD-PL/nano-js).
 
 In particular, the format recognized is the following:
 
-    <col1>:<line1>-<col2>:<line2>::<content>
+    <col1>:<line1>-<line2>:<col2>::<content>
 
 Where `<col1>` and `<line1>` are the column and line of the beginnig of the
 annotated code and `<col2>` and `<line2>` those of the end. `<Content>` can be
