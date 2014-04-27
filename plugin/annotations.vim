@@ -1,9 +1,9 @@
 " annotations.vim
 
-if exists("g:loaded_qfnotes")
+if exists("g:loaded_vim_annotations")
   finish
 endif
-let g:loaded_qfnotes = 1
+let g:loaded_vim_annotations = 1
 
 
 if v:version < 700
