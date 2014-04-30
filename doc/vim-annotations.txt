@@ -44,6 +44,26 @@ The plugin requires Vim version 7.2 and above
 						           *annotations-options*
 5. Options~
 
+You can specify an offset to the path where the default annotations exist.
+For example, if you are editing
+
+  /path/to/file.hs
+
+then by default the annotations will be loaded from
+
+  /path/to/file.hs.vim.annot
+
+However, you can configure both an offset and a suffix, e.g.
+
+  let g:vim_annotations_offset = '/.liquid/'
+  let g:vim_annotations_suffix = '.vannot'
+
+after which the default annotations are loaded from
+
+  /path/to/file.hs.vannot
+
+  
+
 
 ==============================================================================
 						          *annotations-commands*

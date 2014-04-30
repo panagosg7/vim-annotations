@@ -3,7 +3,10 @@
 if exists("g:loaded_vim_annotations")
   finish
 endif
+
 let g:loaded_vim_annotations = 1
+
+
 
 
 if v:version < 700
