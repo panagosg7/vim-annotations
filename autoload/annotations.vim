@@ -1,13 +1,17 @@
 " annotations.vim
 
-if exists("g:loaded_qfnotes_auto")
-  finish
+if !exists("g:vim_annotations_offset")
+  let g:vim_annotations_offset = ''
 endif
-let g:loaded_qfnotes_auto = 1
+
+if !exists("g:vim_annotations_suffix")
+  let g:vim_annotations_suffix = '.vim.annot' 
+endif
 
 " Arguments:
 " * range is a list with 4 elements: [startLine, startCol, endLine, endCol]
 " * position is a list with 2 elements: [line, col]
+
 function Contains(range, position) 
   if a:position[0] < a:range[0] 
     return 0 
@@ -48,6 +52,7 @@ function annotations#LoadAnns(fileName)
   let b:spans_cur_pos = 0
   let b:ann_file_loaded = 1
 
+  
   " Enable mappings
   nnoremap <buffer> <F1> :LQType<CR>
   nnoremap <buffer> <F2> :ClearLQType<CR>
@@ -55,8 +60,12 @@ function annotations#LoadAnns(fileName)
 endfunction
 
 function annotations#LoadAnnsDefault()
-  let annFile = expand("%") . ".vim.annot"
-  call annotations#LoadAnns(annFile) 
+  " let annFile = expand("%") . ".vim.annot"
+  " let annFile = expand('%:p:h') . '/.liquid/' . expand('%:t') . '.vim.annot'
+  let off  = g:vim_annotations_offset
+  let suf  = g:vim_annotations_suffix 
+  let file = expand('%:p:h') . off . expand('%:t') . suf
+  call annotations#LoadAnns(file) 
 endfunction
 
 function! annotations#clear_highlight()
@@ -117,17 +126,10 @@ function LookupAnnotation(curPos)
 endfunction
 
 function! AnnotBalloonExpr()
-  
   if !exists("b:ann_file_loaded") 
     return ""
   endif
-
-  
-  " if !b:ann_file_loaded
-  "   " echoerr "You need to load annotation file first." 
-  "   return ""
-  " endif
-  
+ 
   let curPos = [v:beval_lnum, v:beval_col]
   
   return LookupAnnotation(curPos)
@@ -138,6 +140,7 @@ function! AnnotBalloonExpr()
   "       \ ' on word "' . v:beval_text . '"'
 endfunction
 
+" Unfortunately, this clashes with other tooltip things (e.g. syntastic error reports...)
 
 if has("gui")
   set bexpr=AnnotBalloonExpr()
