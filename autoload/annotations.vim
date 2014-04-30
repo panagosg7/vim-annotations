@@ -52,6 +52,7 @@ function annotations#LoadAnns(fileName)
   let b:spans_cur_pos = 0
   let b:ann_file_loaded = 1
 
+  
   " Enable mappings
   nnoremap <buffer> <F1> :LQType<CR>
   nnoremap <buffer> <F2> :ClearLQType<CR>
@@ -125,17 +126,10 @@ function LookupAnnotation(curPos)
 endfunction
 
 function! AnnotBalloonExpr()
-  
   if !exists("b:ann_file_loaded") 
     return ""
   endif
-
-  
-  " if !b:ann_file_loaded
-  "   " echoerr "You need to load annotation file first." 
-  "   return ""
-  " endif
-  
+ 
   let curPos = [v:beval_lnum, v:beval_col]
   
   return LookupAnnotation(curPos)
@@ -146,6 +140,7 @@ function! AnnotBalloonExpr()
   "       \ ' on word "' . v:beval_text . '"'
 endfunction
 
+" Unfortunately, this clashes with other tooltip things (e.g. syntastic error reports...)
 
 if has("gui")
   set bexpr=AnnotBalloonExpr()
