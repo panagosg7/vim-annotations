@@ -2,7 +2,7 @@ vim-annotations
 ===============
 
 Vim plugin intended for displaying type annotations of programs produced by
-tools like [nano-js](https://github.com/UCSD-PL/nano-js).
+tools like [RefScript](https://github.com/UCSD-PL/RefScript).
 
 ![alt tag](https://raw.githubusercontent.com/panagosg7/vim-annotations/master/doc/neg.png)
 
